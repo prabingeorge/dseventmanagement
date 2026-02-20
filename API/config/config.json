@@ -15,10 +15,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "postgres",
-    "password": "123456",
-    "database": "postgres",
-    "host": "dscatering-486710:us-central1:dsmanagementdb",
+    "username": "divine",
+    "password": "sVn7GXgS65ppEYnLkyfaPltINOwgUq4K",
+    "database": "dsdb_54ve",
+    "host": "dpg-d6c33gt6ubrc73fajtug-a",
     "port": "5432",
     "dialect": "postgres"
   }

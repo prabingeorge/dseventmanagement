@@ -1,0 +1,46 @@
+.menu-view {
+    .bottom-header {
+        .bottom-menu {
+            list-style: none;
+            display: flex;
+
+            li {
+                margin-right: 40px;
+                cursor: pointer;
+                font-weight: bold;
+                color: #000;
+
+                &:hover {
+                    color: #1161ee;
+                }
+
+                a {
+                    text-decoration: none;
+                }
+            }
+
+            .non-active-menu {
+                color: #000;
+                border-bottom: 2px solid #fff;
+                padding: 0px 5px;
+            }
+
+            .active-menu {
+                border-bottom: 2px solid #ffa500;
+                padding: 0px 5px;
+            }
+        }
+    }
+
+    .breadcrumb-header {
+        margin-left: 32px;
+
+        .breadcrumb {
+            --bs-breadcrumb-item-padding-x: 0px;
+        }
+
+        .breadcrumb-item {
+            text-transform: capitalize;
+        }
+    }
+}

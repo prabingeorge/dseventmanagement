@@ -1,0 +1,128 @@
+.product-confirmation-view {
+    .no-product {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: bold;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .product-panel {
+        border: 2px solid #1161ee;
+        margin-left: 40px;
+        padding: 6px;
+        list-style: none;
+        /* min-height: 345px; */
+        position: relative;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+
+        .group {
+            display: flex;
+            background-color: #ffa500;
+            margin: 6px 0px;
+            padding: 6px 0px;
+            justify-content: center;
+        }
+
+        .group .label {
+            border: none;
+            /* padding: 15px 20px; */
+            padding: 15px 16px;
+            border-radius: 25px;
+            /* background: rgba(255, 255, 255, .1); */
+            width: 40%;
+            color: #000;
+            display: block;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .group .label {
+            width: 20%;
+
+            @media only screen and (max-width: 600px) {
+                width: 35%;
+            }
+        }
+
+        .product-wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            border: 2px solid #ffa500;
+            margin: 5px;
+            padding: 10px;
+
+            .product-details {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                width: 90%;
+                margin-right: 16px;
+
+                label {
+                    font-weight: bold;
+                }
+
+                .venu-info-title {
+                    color: #ffa500;
+                    font-style: italic;
+                    font-size: 18px;
+                    margin-top: 5px;
+                }
+
+                .footer-container {
+                    display: flex;
+                    justify-content: end;
+                    flex-wrap: wrap;
+
+                    .button {
+                        cursor: pointer;
+                        background: #0ade51;
+                        border: 2px solid #ffa500;
+                        color: #fff;
+                        font-size: 16px;
+                        padding: 5px 15px;
+                        border-radius: 5px;
+
+                        &:hover {
+                           font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .confirm-button-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        margin: 10px 15px 60px 0px;
+
+        .button {
+            padding: 5px 15px;
+            border-radius: 5px;
+            display: block;
+            font-size: 16px;
+            /* font-family: 'Times New Roman', Times, serif; */
+            cursor: pointer;
+            background: #0ade51;
+            border: 2px solid #ffa500;
+            color: #fff;
+
+            &:hover {
+                font-weight: bold;
+            }
+        }
+
+    }
+
+    .email-validation-container {
+        display: flex;
+        justify-content: center;
+    }
+}

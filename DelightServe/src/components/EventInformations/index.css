@@ -1,0 +1,188 @@
+.eventinformations-view {
+    .userinfo-panel {
+        .login-header {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+
+            .link {
+                margin-left: 5px;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        /* signup override css */
+        .signup-wrap {
+            padding: 0px;
+            background: none;
+            box-shadow: unset;
+            margin-top: 10px;
+
+            .signup-html {
+                padding: 0px 20px;
+                background: none;
+
+                .sign-up {
+                    display: none;
+                }
+
+                .signup-form {
+                    background: oldlace;
+                    padding: 15px;
+
+                    .group {
+                        .label {
+                            color: #000;
+                        }
+
+                        .input {
+                            border: 2px solid #ffa500
+                        }
+
+                        .button {
+                            width: auto;
+                            padding: 5px 10px;
+                            border: 2px solid #ffa500;
+                            color: #fff;
+                        }
+
+                        .error {
+                            display: flex;
+                            margin: 10px;
+                            justify-content: center;
+                            width: -webkit-fill-available;
+                        }
+                    }
+
+                    .event-footer {
+                        display: flex;
+                        justify-content: end;
+                    }
+
+                    .footer {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .loggedin-panel {
+            list-style: none;
+            display: grid;
+            justify-content: center;
+            font-weight: bold;
+
+            li {
+                margin: 5px;
+            }
+        }
+    }
+
+    .summary-panel {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .event-summary {
+            padding: 0 2rem;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .event-info {
+            list-style: none;
+            padding: 15px;
+            background: oldlace;
+
+            li {
+                margin: 15px 0px;
+            }
+
+            label {
+                font-size: 16px;
+                font-weight: bold;
+                font-style: italic;
+                width: 140px;
+                ;
+            }
+
+            /* .product-counter {
+                display: flex;
+                align-items: baseline;
+
+                .counter-wrapper {
+                    margin-left: 15px;
+                }
+
+                .counter-button {
+                    height: 30px;
+                    width: 40px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    border: 2px solid #1161ee;
+                    color: #1161ee;
+
+                    &:hover {
+                        background: #598de6;
+                        color: #fff;
+                        font-weight: bold;
+                        border: 2px solid #fff;
+                    }
+                }
+
+                .counter-label {
+                    height: 30px;
+                    width: 40px;
+                    height: 30px;
+                    width: 40px;
+                    display: inline-flex;
+                    justify-content: center;
+                }
+            } */
+
+            .event-details-label {
+                color: #ffa500;
+                font-size: 18px;
+                width: auto;
+            }
+
+            .event-control {
+                padding: 5px;
+                cursor: pointer;
+                border: 2px solid #ffa500;
+                border-radius: 5px;
+                font-size: 16px;
+                line-height: 20px;
+                width: 160px;
+                margin-left: 10px;
+            }
+
+            .validation-error {
+                width: auto;
+            }
+        }
+    }
+
+    .buy-now {
+        cursor: pointer;
+        background: #0ade51;
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        margin: 0px;
+        float: right;
+        border: 2px solid #ffa500;
+        color: #fff;
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
+}

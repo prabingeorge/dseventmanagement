@@ -1,0 +1,31 @@
+.acategories-view {
+    margin: 20px;
+
+    .categorieslist {
+        display: flex;
+        justify-content: center;
+
+        .table {
+            width: 30%;
+        }
+    }
+
+    .add-category-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .add-button {
+            margin-left: 10px;
+            background: orange;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    }
+
+    .nextpage-link {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,47 @@
+.acategorieslist-view {
+    margin-top: 30px;
+
+    .category-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .categorylist-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .add-categorylist-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        ul {
+            list-style: none;
+            width: 35%;
+
+            label {
+                width: 40%;
+                margin-top: 10px;
+            }
+
+            .button-container {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+
+                .add-button {
+                    font-size: 14px;
+                    background: orange;
+                }
+            }
+        }
+    }
+
+    .nextpage-link {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}

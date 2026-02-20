@@ -1,0 +1,15 @@
+.cateringlisttypes-view {
+
+    .categorieslist {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.non-active-food-menu {
+    border: 2px solid #fff;
+}
+
+.active-food-menu {
+    border: 2px solid #ffa500;
+}

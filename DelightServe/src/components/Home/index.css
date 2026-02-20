@@ -1,0 +1,123 @@
+.home-view {
+    --font-heading-scale: 1.0;
+
+    .carousel-container {
+        /* margin: 40px; */
+
+        @media only screen and (max-width: 600px) {
+            /* margin: 20px 40px; */
+        }
+
+        .carousel-item {
+            height: 20%;
+
+            .carousel-caption {
+                h5 {
+                    --bs-heading-color: lightyellow;
+                    background-color: orange;
+                    display: inline-flex;
+                    padding: 5px;
+                }
+
+                p {
+                    background-color: orange;
+                }
+            }
+
+            img {
+                height: 500px;
+            }
+        }
+    }
+
+    .location-order-container {
+        display: flex;
+        justify-content: center;
+
+        .order-button {
+            background: #0ade51;
+            text-decoration: none;
+            display: block;
+            padding: 5px 15px;
+            font-size: 18px;
+            color: #fff;
+            border: 2px solid #ffa500;
+            border-radius: 5px;
+            margin-top: 15px;
+
+            &:hover {
+                color: #fff;
+                border: 2px solid #ffa500;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .our-events {
+        margin: 30px 0;
+        padding: 5px 20px;
+
+        .card-container {
+            overflow-x: auto;
+
+            .card-group {
+                display: inline-flex;
+
+                .card {
+                    width: 150px;
+                    margin-right: 5px;
+
+                    .card-image {
+                        width: 150px;
+                        transition: width 2s;
+
+                        &:hover {
+                            width: 200px;
+                        }
+                    }
+
+                    .card-title {
+                        font-size: calc(var(--font-heading-scale) * 14px);
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-container {
+        margin: 20px 0px;
+        padding: 5px 20px;
+        /* background: #faf6f6; */
+        background: oldlace;
+
+        .info-details {
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0px;
+            font-size: 16px;
+
+            .info-link {
+                text-decoration: none;
+                color: #000;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .label {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .misson-details {
+            margin: 10px 0px;
+
+            .description {
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+    }
+}

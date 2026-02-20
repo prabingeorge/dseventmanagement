@@ -1,0 +1,15 @@
+.ABookinghistory-view {
+    margin: 0 10px;
+    .table {
+        list-style: none;
+    }
+    .table-row {
+        display: flex;
+        list-style: none;
+        flex-direction: row;
+        width: 100%;
+        li {
+            width: 20%;
+        }
+    }
+}

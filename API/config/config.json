@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "Libin@04",
+    "database": "DivineDB",
+    "host": "localhost",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "123456",
+    "database": "postgres",
+    "host": "dscatering-486710:us-central1:dsmanagementdb",
+    "port": "5432",
+    "dialect": "postgres"
+  }
+}

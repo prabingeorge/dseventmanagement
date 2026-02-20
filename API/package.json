@@ -1,5 +1,5 @@
 {
-  "name": "DelightServe-api",
+  "name": "dseventmanagement-api",
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",

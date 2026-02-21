@@ -29,41 +29,41 @@ const Home = () => {
         "categoryListId": 1,
         "categoryListItemId": 1,
         "itemName": "Gerbera Theme",
-        "imageName": "1_1.jpg",
-        "price": "20999",
+        "imageName": "gerbera_theme.jpg",
+        "price": "31999",
         "discountPrice": "1000",
         "ratings": 5,
-        "sendItemsCount": 1
+        "sendItemsCount": 11
     },
     {
         "categoryListId": 1,
         "categoryListItemId": 2,
         "itemName": "Royal Look",
-        "imageName": "1_2.jpg",
+        "imageName": "royal_look.jpg",
         "price": "25999",
         "discountPrice": "1000",
         "ratings": 5,
-        "sendItemsCount": 1
+        "sendItemsCount": 21
     },
     {
         "categoryListId": 1,
         "categoryListItemId": 3,
-        "itemName": "Test",
-        "imageName": "1_3.jpg",
-        "price": "1000",
-        "discountPrice": "100",
+        "itemName": "Classy White",
+        "imageName": "classy_white.jpg",
+        "price": "27999",
+        "discountPrice": "2000",
         "ratings": 5,
-        "sendItemsCount": 3
+        "sendItemsCount": 2
     },
     {
         "categoryListId": 1,
         "categoryListItemId": 4,
-        "itemName": "Test2",
-        "imageName": "1_4.jpg",
-        "price": "30000",
-        "discountPrice": "900",
-        "ratings": 4,
-        "sendItemsCount": 10
+        "itemName": "Multi Queen",
+        "imageName": "multi_queen.jpg",
+        "price": "59999",
+        "discountPrice": "0",
+        "ratings": 5,
+        "sendItemsCount": 1
     }];
 
     const ourCaterings = [{

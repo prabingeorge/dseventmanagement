@@ -38,9 +38,9 @@ const Cards = ({ cateringListItemId, cateringListItemTypeId, foodItems }) => {
                             <Card.Text>
                                 {item?.description}
                             </Card.Text>
-                            <Card.Text>
+                            {/* <Card.Text>
                                 <label style={{ fontWeight: 'bold' }}>Price:</label> <FontAwesomeIcon icon={faIndianRupee} size="1x" />{item?.price} per person
-                            </Card.Text>
+                            </Card.Text> */}
                         </Card.Body>
                         <Card.Footer>
                             <input type="button" className="buy-now" onClick={() => buyNowProduct(item)} value={'Place Order'} />

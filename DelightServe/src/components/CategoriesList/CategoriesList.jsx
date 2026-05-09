@@ -86,10 +86,10 @@ const CategoriesList = () => {
                                             <label>Total Ordered:</label> {image.sendItemsCount}
                                         </div>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <label>Price:</label>
                                         <FontAwesomeIcon icon={faIndianRupee} size="1x" />{image.price}
-                                    </li>
+                                    </li> */}
                                     <li className="button-container">
                                         <input type="button" className={image?.isAddedToCart ? 'added-to-cart' : 'add-to-cart'} value={image?.isAddedToCart ? 'Added' : 'Add'} onClick={() => addToCartClick(image)} />
                                     </li>

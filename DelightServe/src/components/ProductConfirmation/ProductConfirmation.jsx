@@ -27,7 +27,7 @@ const EmailTemplate = ({ cartItems }) => {
                                             <div>
                                                 Name: <label style={{ fontWeight: 'bold' }} key={item?.id}>{item?.itemName}</label>
                                             </div>
-                                            <div>
+                                            {/* <div>
                                                 Price: <label style={{ fontWeight: 'bold' }} key={item?.id}>
                                                     <FontAwesomeIcon icon={faIndianRupee} size="1x" />{item?.price}
                                                 </label> per Product
@@ -37,7 +37,7 @@ const EmailTemplate = ({ cartItems }) => {
                                             </div>
                                             <div>
                                                 Total: <label style={{ fontWeight: 'bold' }} key={item?.id}>{(item?.price - item?.discountPrice) * item?.quantity}</label>
-                                            </div>
+                                            </div> */}
                                             <div>
                                                 Quantity: <label style={{ fontWeight: 'bold' }} key={item?.id}>{item?.quantity}</label>
                                             </div>
@@ -186,7 +186,7 @@ const ProductConfirmation = () => {
                                         <div>
                                             Name: <label>{item?.itemName}</label>
                                         </div>
-                                        <div>
+                                        {/* <div>
                                             Price: <label>
                                                 <FontAwesomeIcon icon={faIndianRupee} size="1x" />{item?.price}
                                             </label>
@@ -200,7 +200,7 @@ const ProductConfirmation = () => {
                                             Total: <label>
                                                 <FontAwesomeIcon icon={faIndianRupee} size="1x" />{(item?.price - item?.discountPrice) * item?.quantity}
                                             </label>
-                                        </div>
+                                        </div> */}
                                     </>}
                                     {!item?.discountPrice && <>
                                         <div>

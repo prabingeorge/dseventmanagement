@@ -43,7 +43,7 @@ const ProductOrder = () => {
                         <li>
                             <hr />
                         </li>
-                        <li>
+                        {/* <li>
                             <label>Price:</label>
                             <FontAwesomeIcon icon={faIndianRupee} size="1x" />{product?.price}
                         </li>
@@ -61,7 +61,7 @@ const ProductOrder = () => {
                         <li>
                             <label>Total Price: </label>
                             <FontAwesomeIcon icon={faIndianRupee} size="1x" />{(product?.price - product?.discountPrice) * productQuantity} (incl. of all taxes)
-                        </li>
+                        </li> */}
                         <li className="footer">
                             <input type="button" className="buy-now" onClick={() => buyNowProduct()} value={'Place Order'} />
                         </li>

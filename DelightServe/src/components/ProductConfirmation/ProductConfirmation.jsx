@@ -209,7 +209,7 @@ const ProductConfirmation = () => {
                                         {item?.description && <div>
                                             <label>({item?.description})</label>
                                         </div>}
-                                        <div>
+                                        {/* <div>
                                             Price: <label>
                                                 <FontAwesomeIcon icon={faIndianRupee} size="1x" />{item?.price}
                                             </label>
@@ -221,7 +221,7 @@ const ProductConfirmation = () => {
                                             Total: <label>
                                                 <FontAwesomeIcon icon={faIndianRupee} size="1x" />{(item?.price * item?.venuInfo?.guests)}
                                             </label>
-                                        </div>
+                                        </div> */}
                                     </>}
                                     <div>
                                         <h5 className="venu-info-title">Venue Info:</h5>

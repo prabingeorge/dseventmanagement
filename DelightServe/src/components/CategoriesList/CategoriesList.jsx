@@ -71,7 +71,7 @@ const CategoriesList = () => {
                     {categoriesListItems?.length > 0 && categoriesListItems.map((image) => {
                         return (
                             <>
-                                <ul key={image?.categoryListItemId} className="images-wrapper">
+                                <ul key={image?.categoryListItemId} className="images-wrapper" id={image?.categoryListItemId}>
                                     <li>
                                         <Images fileName={image.imageName} path={`categorieslist/` + selectedCategoryListMap?.type} cssClass={'rectangle-image'} />
                                     </li>

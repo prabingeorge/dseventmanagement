@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import AppCarousel from './../Carousel/Carousel';
 import { CartContext } from "../../contexts/Cart";
 import Card from 'react-bootstrap/Card';
@@ -104,14 +105,13 @@ const Home = () => {
                         {ourDecorations?.map((event) => {
                             return (
                                 <Card>
-                                    <Card.Img className="d-block w-10 card-image" variant="top" src={`/images/categorieslist/wedding/'}` + event?.imageName} />
+                                    <Card.Img className="d-block w-10 card-image" variant="top" src={`/images/categorieslist/wedding/` + event?.imageName} />
                                     <Card.Body>
-                                        <Link to={'/categorieslist/1'} onClick={() => addSelectedCategoryToCart(1)}>
+                                        <HashLink to={`/categorieslist/${event?.categoryListId}#${event?.categoryListItemId}`} onClick={() => addSelectedCategoryToCart(event?.categoryListId)}>
                                             <Card.Title>{event?.itemName}</Card.Title>
-                                        </Link>
+                                        </HashLink>
                                     </Card.Body>
                                 </Card>
-
                             )
                         })}
                     </CardGroup>
@@ -130,7 +130,6 @@ const Home = () => {
                                         <Card.Title>{event?.typeName}</Card.Title>
                                     </Card.Body>
                                 </Card>
-
                             )
                         })}
                     </CardGroup>

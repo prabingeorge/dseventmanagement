@@ -24,12 +24,12 @@ const EventInformations = () => {
     }
 
 
-    const [isRegisteredUser, setIsRegisteredUser] = useState(false);
+    const [isRegisteredUser, setIsRegisteredUser] = useState(true);
     const initialVenueInfo = {
         location: "",
         eventDate: "",
-        eventTime: "",
-        gender: "",
+        // eventTime: "",
+        // gender: "",
         guests: "",
         status: ""
     };
@@ -52,16 +52,20 @@ const EventInformations = () => {
 
     const buyNowProduct = () => {
         setValidationError("");
-        if (!venueInfo?.location || !venueInfo?.eventDate || !venueInfo?.eventTime) {
+        if (!venueInfo?.location || !venueInfo?.eventDate) {
             setValidationError("Enter all the Event Details!");
             return;
         }
-        if (product?.categoryId == 2 && !venueInfo?.guests) {
-            setValidationError("Enter all the Event Details!");
-            return;
-        }
-        if (product?.categoryListId == 1 && !venueInfo?.gender) {
-            setValidationError("Enter all the Event Details!");
+        // if (product?.categoryId == 2 && !venueInfo?.guests) {
+        //     setValidationError("Enter all the Event Details!");
+        //     return;
+        // }
+        // if (product?.categoryListId == 1 && !venueInfo?.gender) {
+        //     setValidationError("Enter all the Event Details!");
+        //     return;
+        // }
+        if (!product) {
+            setValidationError("No product in the cart!");
             return;
         }
         udateCartVenuInfo(product, venueInfo)
@@ -74,16 +78,16 @@ const EventInformations = () => {
                 {!user && !isRegisteredUser && <div>
                     <RegisterUserInfo />
                     <div className="login-header">
-                        Registered user, click here to login <Link className="link" onClick={() => setIsRegisteredUser(true)}> Click</Link>
+                        Already have account? <Link className="link" onClick={() => setIsRegisteredUser(true)}>click here</Link>
                     </div>
                 </div>}
                 {!user && isRegisteredUser && <div>
                     <SignIn />
                     <div className="login-header">
-                        Not yet registered, click here <Link className="link" onClick={() => setIsRegisteredUser(false)}> Click</Link>
+                        Create an account? <Link className="link" onClick={() => setIsRegisteredUser(false)}>click here</Link>
                     </div>
                 </div>}
-                {user && <div>
+                {/* {user && <div>
                     <ul className="loggedin-panel">
                         <li>
                             Name: {user?.name}
@@ -96,7 +100,7 @@ const EventInformations = () => {
                         </li>
                     </ul>
                     <hr />
-                </div>}
+                </div>} */}
             </div>
             {user && <div className="summary-panel">
                 <div className="event-summary">
@@ -109,14 +113,15 @@ const EventInformations = () => {
                         <label className="event-details-label">Fill Event Details</label>
                     </li>
                     <li>
-                        <label htmlFor="location">Location*</label>
-                        <input type="text" placeholder="Location" className="event-control" name="location" value={venueInfo?.location} onChange={addFieldValue} />
-                    </li>
-                    <li>
                         <label htmlFor="eventDate">Date*</label>
-                        <input type="date" className="event-control" name="eventDate" value={venueInfo?.eventDate} onChange={addFieldValue} />
+                        <input type="date" min={new Date().toISOString().split('T')[0]} className="event-control" name="eventDate" value={venueInfo?.eventDate} onChange={addFieldValue} />
                     </li>
-                    <li>
+                    <li className="address-container">
+                        <label htmlFor="location">Address*</label>
+                        <textarea className="event-control" name="location" value={venueInfo?.location} onChange={addFieldValue}></textarea>
+                        {/* <input type="text" placeholder="Location" className="event-control" name="location" value={venueInfo?.location} onChange={addFieldValue} /> */}
+                    </li>
+                    {/* <li>
                         <label htmlFor="eventTime">Time*</label>
                         <select className="event-control" name="eventTime" value={venueInfo?.eventTime} onChange={addFieldValue}>
                             <option value="">--Select--</option>
@@ -124,14 +129,14 @@ const EventInformations = () => {
                             <option value="2">Noon</option>
                             <option value="3">Evening</option>
                         </select>
-                    </li>
-                    {(product?.categoryId == 2) && <>
+                    </li> */}
+                    {/* {(product?.categoryId == 2) && <>
                         <li>
                             <label htmlFor="eventDate">Guests Count*</label>
                             <input type="text" placeholder="Guests Count" className="event-control" name="guests" value={venueInfo?.guests} onChange={addFieldValue} />
                         </li>
-                    </>}
-                    {(product?.categoryListId == 1) && <>
+                    </>} */}
+                    {/* {(product?.categoryListId == 1) && <>
                         <li>
                             <label htmlFor="gender">Gender*</label>
                             <select className="event-control" name="gender" value={venueInfo?.gender} onChange={addFieldValue}>
@@ -139,8 +144,8 @@ const EventInformations = () => {
                                 <option value="1">Bride</option>
                                 <option value="2">Groom</option>
                             </select>
-                        </li></>}
-                    {(product?.categoryListId == 2) && <>
+                        </li></>} */}
+                    {/* {(product?.categoryListId == 2) && <>
                         <li>
                             <label htmlFor="gender">Gender*</label>
                             <select className="event-control" name="gender" value={venueInfo?.gender} onChange={addFieldValue}>
@@ -148,7 +153,7 @@ const EventInformations = () => {
                                 <option value="1">Girl</option>
                                 <option value="2">Boy</option>
                             </select>
-                        </li></>}
+                        </li></>} */}
                     {/* <li className="product-counter">
                             <label>Quantity:</label>
                             <div className="counter-wrapper">

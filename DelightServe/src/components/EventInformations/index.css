@@ -103,6 +103,11 @@
 
             li {
                 margin: 15px 0px;
+
+                &.address-container {
+                    vertical-align: middle;
+                    display: flex;
+                }
             }
 
             label {

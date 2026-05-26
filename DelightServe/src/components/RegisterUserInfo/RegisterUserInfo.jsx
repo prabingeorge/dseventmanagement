@@ -10,8 +10,9 @@ const RegisterUserInfo = () => {
     const { login } = useAuth();
     const initialSignupInfo = {
         name: "",
-        phone: "",
+        // phone: "",
         email: "",
+        password: "",
         // role: "user",
         status: "completed"
     }
@@ -39,8 +40,12 @@ const RegisterUserInfo = () => {
                 setError("Name should not be empty!");
                 return;
             }
-            if (!signupInfo?.phone) {
-                setError("Phone should not be empty!");
+            if (!signupInfo?.email) {
+                setError("Email should not be empty!");
+                return;
+            }
+            if (!signupInfo?.password) {
+                setError("Password should not be empty!");
                 return;
             }
             const response = await api.post(apiURL + "/api/auth/user-register", signupInfoCopy);
@@ -74,22 +79,22 @@ const RegisterUserInfo = () => {
                         <div>
                             <div className="group">
                                 <label htmlFor="name" className="label">Name*</label>
-                                <input type="text" name="name" placeholder="Name" value={signupInfo.name} onChange={addFieldValue} className="input" />
+                                <input type="text" name="name" placeholder="type here" value={signupInfo.name} onChange={addFieldValue} className="input" />
                             </div>
                             <div className="group">
-                                <label htmlFor="phone" className="label">Mobile*</label>
-                                <input type="text" name="phone" placeholder="Mobile" value={signupInfo.phone} onChange={addFieldValue} className="input" />
+                                <label htmlFor="email" className="label">Email*</label>
+                                <input type="text" name="email" placeholder="type here" value={signupInfo.email} onChange={addFieldValue} className="input" />
                             </div>
-                            <div className="group">
-                                <label htmlFor="email" className="label">Email</label>
-                                <input type="text" name="email" placeholder="Email" value={signupInfo.email} onChange={addFieldValue} className="input" />
+                             <div className="group">
+                                <label htmlFor="password" className="label">Password*</label>
+                                <input type="password" name="password" placeholder="type here" value={signupInfo.password} onChange={addFieldValue} className="input" />
                             </div>
                             <div className="group group-error">
                                 {error && <p className="error">{error}</p>}
                                 {success && <p className="success">{success}</p>}
                             </div>
                             <div className="group event-footer">
-                                <input type="submit" className="button" value="Save" />
+                                <input type="submit" className="button" value="Create Account" />
                             </div>
                         </div>
                     </div>

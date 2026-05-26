@@ -43,19 +43,21 @@ const ProductOrder = () => {
                         <li>
                             <hr />
                         </li>
-                        {/* <li>
+                        <li>
                             <label>Price:</label>
-                            <FontAwesomeIcon icon={faIndianRupee} size="1x" />{product?.price}
+                            <span className="price-tag">
+                                <FontAwesomeIcon icon={faIndianRupee} size="1x" />{product?.price}
+                            </span>
                         </li>
                         <li>
                             <label>Discount:</label>
-                            <FontAwesomeIcon icon={faIndianRupee} size="1x" />{product?.discountPrice}
+                            <FontAwesomeIcon icon={faIndianRupee} size="1x" />{product?.discountPrice} (incl. of all taxes)
                         </li>
-                        <li>
+                        {/* <li>
                             <label>Total Price:</label>
                             <FontAwesomeIcon icon={faIndianRupee} size="1x" />{product?.price - product?.discountPrice}
-                        </li>
-                        <li>
+                        </li> */}
+                        {/* <li>
                             <hr />
                         </li>
                         <li>

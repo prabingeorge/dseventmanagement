@@ -66,9 +66,9 @@ const ProductConfirmation = () => {
     const [emailValidationError, setEmailValidationError] = useState("");
     const [error, setError] = useState("");
 
-    const eventTimeInfo = ['Morning', 'Noon', 'Evening'];
-    const genderWeddingInfo = ['Bride', 'Groom'];
-    const genderBirthdayInfo = ['Girl', 'Boy'];
+    // const eventTimeInfo = ['Morning', 'Noon', 'Evening'];
+    // const genderWeddingInfo = ['Bride', 'Groom'];
+    // const genderBirthdayInfo = ['Girl', 'Boy'];
 
     const savePurchaseDetails = async () => {
 
@@ -163,7 +163,9 @@ const ProductConfirmation = () => {
     const { user } = useAuth();
 
     // const [isLoggedIn, setIsLoggedIn] = useState(!!user?.phone);
-    if (cartItems?.length === 0) {
+    const isVeuInfoAvailable = cartItems.some(obj => Object.prototype.hasOwnProperty.call(obj, 'venuInfo'));
+
+    if (cartItems?.length === 0 || !isVeuInfoAvailable) {
         return (
             <div className="product-confirmation-view">
                 <label className="no-product">No orders in the Cart!</label>
@@ -227,15 +229,15 @@ const ProductConfirmation = () => {
                                         <h5 className="venu-info-title">Venue Info:</h5>
                                     </div>
                                     <div>
-                                        Location: <label>{item?.venuInfo?.location}</label>
+                                        Address: <label>{item?.venuInfo?.location}</label>
                                     </div>
                                     <div>
                                         Date: <label>{item?.venuInfo?.eventDate}</label>
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         Time: <label>{eventTimeInfo?.[item?.venuInfo?.eventTime - 1]}</label>
-                                    </div>
-                                    {item?.discountPrice && item?.categoryListId == 1 && <>
+                                    </div> */}
+                                    {/* {item?.discountPrice && item?.categoryListId == 1 && <>
                                         <div>
                                             Gender: <label>{genderWeddingInfo?.[item?.venuInfo?.gender - 1]}</label>
                                         </div>
@@ -244,7 +246,7 @@ const ProductConfirmation = () => {
                                         <div>
                                             Gender: <label>{genderBirthdayInfo?.[item?.venuInfo?.gender - 1]}</label>
                                         </div>
-                                    </>}
+                                    </>} */}
                                     {/* <div>
                                         Quantity: <label>{item?.quantity}</label>
                                     </div> */}

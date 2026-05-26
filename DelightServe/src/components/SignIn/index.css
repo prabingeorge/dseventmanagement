@@ -9,6 +9,7 @@
         background: oldlace;
         padding: 15px;
         width: 100%;
+        max-width: 525px;
 
         .login-container {
             list-style: none;

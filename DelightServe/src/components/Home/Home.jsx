@@ -10,11 +10,13 @@ const Home = () => {
     const { addSelectedCategoryToCart } = useContext(CartContext);
     const ourEvents = [{
         name: 'Wedding',
-        imageName: 'wedding.jpg'
+        imageName: 'wedding.jpg',
+        navigatePath: '/categorieslist/1'
     },
     {
         name: 'Birthday',
-        imageName: 'birthday.jpg'
+        imageName: 'birthday.jpg',
+        navigatePath: '/categorieslist/2'
     },
     {
         name: 'Communion',
@@ -103,7 +105,10 @@ const Home = () => {
                                 <Card>
                                     <Card.Img className="d-block w-10 card-image" variant="top" src={`/images/dashboard/${event?.imageName}`} />
                                     <Card.Body>
-                                        <Card.Title>{event?.name}</Card.Title>
+                                        {event.navigatePath ? <Link to={event.navigatePath} onClick={() => addSelectedCategoryToCart(1)}>
+                                            <Card.Title>{event?.name}</Card.Title>
+                                        </Link> :
+                                            <Card.Title>{event?.name}</Card.Title>}
                                     </Card.Body>
                                 </Card>
 

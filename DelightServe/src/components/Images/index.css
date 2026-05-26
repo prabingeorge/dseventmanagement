@@ -48,4 +48,21 @@
         margin: 5px 0px;
         border-radius: 50%;
     }
+
+    .filter-circle-image {
+        width: 7.5vw;
+        min-width: 80px;
+        cursor: pointer;
+        height: 84px;
+        border-radius: 50%;
+        transition: 0.2s;
+    }
+
+    .active {
+        border-width: 4px;
+        border-style: solid;
+        border-color: #ffa500;
+        border-image: initial;
+        padding: 2px;
+    }
 }

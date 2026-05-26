@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react";
+import { useParams } from "react-router";
 import Images from "../Images/Images";
 import api from "../../contexts/APIContext";
 import { CartContext } from "../../contexts/Cart";
@@ -26,6 +27,7 @@ const Dashboard = () => {
 
   const nextPage = (selectedCategoryId == 1) ? '/categorieslist/' : '/cateringlist/';
 
+  let params = useParams();
   const apiURL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const fetchData = async () => {
@@ -67,9 +69,9 @@ const Dashboard = () => {
             return (
               <div key={category?.category_list_id}>
                 <div>
-                  <Images fileName={category?.imageName} navigatePath={nextPage + category?.categoryListId} path={'dashboard'} cssClass={'circle-image'} />
+                  <Images fileName={category?.imageName} navigatePath={nextPage + category?.categoryListId} path={'dashboard'} cssClass={`filter-circle-image ${params.categoryListId == category?.categoryListId? 'active': ''}`} />
                 </div>
-                <div className="type-container">
+                <div className="filter-type-container">
                   <label>{category?.type}</label>
                 </div>
               </div>

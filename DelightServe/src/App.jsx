@@ -190,7 +190,7 @@ function App() {
           }
         />
         <Route
-          path="/admin/dashboard"
+          path="/admin/"
           element={
             <>
               <ADashboard />

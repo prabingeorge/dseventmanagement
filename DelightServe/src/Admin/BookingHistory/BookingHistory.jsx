@@ -68,14 +68,14 @@ const ABookingHistory = () => {
                                             <Table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>
+                                                        {/* <td>
                                                             Time: {eventTimeInfo?.[purchase?.VenueDetail?.event_time - 1]}
-                                                        </td>
-                                                        <td>
+                                                        </td> */}
+                                                        {/* <td>
                                                             Gender:
                                                             {(purchase?.CategoriesList?.type === 'Wedding') && genderWeddingInfo?.[purchase?.VenueDetail?.gender - 1]}
                                                             {(purchase?.CategoriesList?.type === 'Birthday') && genderBirthdayInfo?.[purchase?.VenueDetail?.gender - 1]}
-                                                        </td>
+                                                        </td> */}
                                                         <td>
                                                             Amount: {purchase?.amount}
                                                         </td>
@@ -136,12 +136,12 @@ const ABookingHistory = () => {
                                             <Table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>
+                                                        {/* <td>
                                                             Time: {eventTimeInfo?.[purchase?.VenueDetail?.event_time - 1]}
                                                         </td>
                                                         <td>
                                                             Guests: {purchase?.VenueDetail?.guest_count}
-                                                        </td>
+                                                        </td> */}
                                                         <td>
                                                             Amount: {purchase?.amount}
                                                         </td>

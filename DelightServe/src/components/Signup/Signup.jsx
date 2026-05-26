@@ -10,7 +10,7 @@ const Signup = () => {
     const initialSignupInfo = {
         name: "",
         email: "",
-        phone: "",
+        // phone: "",
         password: "",
         confirmPassword: "",
         // role: "user",
@@ -44,10 +44,10 @@ const Signup = () => {
                 setError("Email should not be empty!");
                 return;
             }
-            if (!signupInfo?.phone) {
-                setError("Phone should not be empty!");
-                return;
-            }
+            // if (!signupInfo?.phone) {
+            //     setError("Phone should not be empty!");
+            //     return;
+            // }
             if (!signupInfo?.password) {
                 setError("Password should not be empty!");
                 return;
@@ -96,10 +96,10 @@ const Signup = () => {
                                 <label htmlFor="email" className="label">Email*</label>
                                 <input type="text" name="email" placeholder="Email" value={signupInfo.email} onChange={addFieldValue} className="input" />
                             </div>
-                            <div className="group">
+                            {/* <div className="group">
                                 <label htmlFor="phone" className="label">Phone*</label>
                                 <input type="text" name="phone" placeholder="Phone" value={signupInfo.phone} onChange={addFieldValue} className="input" />
-                            </div>
+                            </div> */}
                             <div className="group">
                                 <label htmlFor="password" className="label">Password*</label>
                                 <input type="password" name="password" placeholder="Password" value={signupInfo.password} onChange={addFieldValue} className="input" />

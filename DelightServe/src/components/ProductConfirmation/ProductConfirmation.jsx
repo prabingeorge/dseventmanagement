@@ -95,7 +95,7 @@ const ProductConfirmation = () => {
                         categoryListId: cartItem?.categoryListId,
                         categoryListItemId: cartItem?.categoryListItemId,
                         quantity: cartItem?.quantity,
-                        amount: cartItem?.price,
+                        amount: cartItem?.discountPrice,
                         venueInfo: cartItem?.venuInfo
                     }
                     await api.post(apiURL + "/api/user/purchase-detail", detail);

@@ -50,7 +50,7 @@ const ProductOrder = () => {
                             </span>
                         </li>
                         <li>
-                            <label>Discount:</label>
+                            <label>Discount Price:</label>
                             <FontAwesomeIcon icon={faIndianRupee} size="1x" />{product?.discountPrice} (incl. of all taxes)
                         </li>
                         {/* <li>

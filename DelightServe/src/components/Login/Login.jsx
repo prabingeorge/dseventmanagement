@@ -39,7 +39,7 @@ const Login = () => {
       const { token } = response.data;
 
       login(token);
-      navigate("/dashboard");
+      navigate("/");
     } catch (error) {
       if (error?.response?.data?.message) {
         setError(error?.response?.data?.message);
@@ -85,9 +85,9 @@ const Login = () => {
                 <div className="footer-last">
                   <Link className="link" to="/home"> Click here for Home!</Link>
                 </div>
-                <div className="footer-last">
-                  <Link className="link" to="/admin/dashboard">Admin, Click here!</Link>
-                </div>
+                {/* <div className="footer-last">
+                  <Link className="link" to="/admin/">Admin, Click here!</Link>
+                </div> */}
               </div>
             </div>
           </div>

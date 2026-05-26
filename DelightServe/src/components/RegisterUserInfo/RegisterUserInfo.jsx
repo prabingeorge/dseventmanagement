@@ -48,7 +48,7 @@ const RegisterUserInfo = () => {
                 setError("Password should not be empty!");
                 return;
             }
-            const response = await api.post(apiURL + "/api/auth/user-register", signupInfoCopy);
+            const response = await api.post(apiURL + "/api/auth/register", signupInfoCopy);
 
             if (response?.status === 201 && !!response?.data?.token) {
                 const { token } = response.data;

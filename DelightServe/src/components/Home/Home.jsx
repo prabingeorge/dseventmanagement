@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from 'react-router-dom';
 import AppCarousel from './../Carousel/Carousel';
 import { CartContext } from "../../contexts/Cart";
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
+import api from "../../contexts/APIContext";
 import './index.css';
 
 const Home = () => {
@@ -27,47 +28,6 @@ const Home = () => {
         imageName: 'puberty.jpg'
     }];
 
-    const ourDecorations = [{
-        "categoryListId": 1,
-        "categoryListItemId": 1,
-        "itemName": "Gerbera Theme",
-        "imageName": "gerbera_theme.jpg",
-        "price": "31999",
-        "discountPrice": "1000",
-        "ratings": 5,
-        "sendItemsCount": 11
-    },
-    {
-        "categoryListId": 1,
-        "categoryListItemId": 2,
-        "itemName": "Royal Look",
-        "imageName": "royal_look.jpg",
-        "price": "25999",
-        "discountPrice": "1000",
-        "ratings": 5,
-        "sendItemsCount": 21
-    },
-    {
-        "categoryListId": 1,
-        "categoryListItemId": 3,
-        "itemName": "Classy White",
-        "imageName": "classy_white.jpg",
-        "price": "27999",
-        "discountPrice": "2000",
-        "ratings": 5,
-        "sendItemsCount": 2
-    },
-    {
-        "categoryListId": 1,
-        "categoryListItemId": 4,
-        "itemName": "Multi Queen",
-        "imageName": "multi_queen.jpg",
-        "price": "59999",
-        "discountPrice": "0",
-        "ratings": 5,
-        "sendItemsCount": 1
-    }];
-
     const ourCaterings = [{
         "cateringListItemTypeId": 1,
         "typeName": "Tiffin",
@@ -86,6 +46,25 @@ const Home = () => {
         "imageName": "biriyani.jpg",
         "cateringListItemId": 2
     }];
+
+    const apiURL = import.meta.env.VITE_API_URL;
+
+    const [ourDecorations, setOurDecorations] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await api.post(apiURL + "/api/user/categories-list-items-by-id", { categoryListId: 1 });
+                const { data } = response;
+                const slicedData = data.splice(0,4);
+                setOurDecorations([...slicedData]);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     return (
         <div className="home-view">
@@ -125,9 +104,11 @@ const Home = () => {
                         {ourDecorations?.map((event) => {
                             return (
                                 <Card>
-                                    <Card.Img className="d-block w-10 card-image" variant="top" src={`/images/categorieslist/wedding/${event?.imageName}`} />
+                                    <Card.Img className="d-block w-10 card-image" variant="top" src={`/images/categorieslist/wedding/'}` + event?.imageName} />
                                     <Card.Body>
-                                        <Card.Title>{event?.itemName}</Card.Title>
+                                        <Link to={'/categorieslist/1'} onClick={() => addSelectedCategoryToCart(1)}>
+                                            <Card.Title>{event?.itemName}</Card.Title>
+                                        </Link>
                                     </Card.Body>
                                 </Card>
 

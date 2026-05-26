@@ -105,18 +105,23 @@ router.post("/login", async (req, res) => {
 router.post("/user-register", async (req, res) => {
     console.log("user register API");
    
-    const { name, email, phone, status } = req.body;
+    const { name, email, password, status } = req.body;
     try {
+        // Verify the user already exist
+        const user = await User.findOne({ where: { email } });
+        if (user) return res.status(400).json({ message: "User is already present. Try with different Email" });
+
         // Create new user
         const newUser = await User.create({
             name,
             email,
-            phone,
+            // phone,
+            password,
             status,
         });
 
         // Generate JWT
-        const token = jwt.sign({ userId: newUser.user_id, name: newUser.name, email: newUser.email, phone: newUser?.phone, role: 'user' }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ userId: newUser.user_id, name: newUser.name, email: newUser.email, password: newUser?.password, role: 'user' }, process.env.JWT_SECRET, {
             expiresIn: "1h"
         });
 

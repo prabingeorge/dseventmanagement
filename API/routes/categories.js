@@ -186,17 +186,18 @@ router.post("/food-menus-by-id", async (req, res) => {
 // Add purchase detail (for the authenticated user)
 router.post("/purchase-detail", auth, async (req, res) => {
   const { userId, categoryId, categoryListId, categoryListItemId, quantity, amount, venueInfo } = req.body;
-  const { location, eventDate, eventTime, gender, guests } = venueInfo;
+  // const { location, eventDate, eventTime, gender, guests } = venueInfo;
+  const { location, eventDate } = venueInfo;
   console.log("======" + JSON.stringify(req.body))
   try {
     // Create new Venue Detail
-    const count = guests == "" ? 0 : guests;
+    // const count = guests == "" ? 0 : guests;
     const newVenuData = await VenueDetails.create({
       location,
       event_date: eventDate,
-      event_time: eventTime,
-      gender,
-      guest_count: count
+      // event_time: eventTime,
+      // gender,
+      // guest_count: count
     });
 
     // Create new purchase list

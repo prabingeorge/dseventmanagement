@@ -30,9 +30,9 @@ export default (sequelize, DataTypes) => {
     },
     location: DataTypes.STRING,
     event_date: DataTypes.DATE,
-    event_time: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    guest_count: DataTypes.INTEGER,
+    // event_time: DataTypes.STRING,
+    // gender: DataTypes.STRING,
+    // guest_count: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'VenueDetails',

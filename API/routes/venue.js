@@ -16,12 +16,13 @@ router.post("/venue-detail", async (req, res) => {
     const newData = await VenueDetails.create({
       location,
       event_date: eventDate,
-      event_time: eventTime,
-      gender: gender,
-      guest_count: guestCount
+      // event_time: eventTime,
+      // gender: gender,
+      // guest_count: guestCount
     });
 
-    res.status(201).json({ venueId: newData.venue_id, location: newData.location, eventDate: newData?.event_date, eventTime: newData?.event_time, gender: newData?.gender, guestCount: newData?.guest_count, updatedAt: newData.updatedAt, createdAt: newData.createdAt });
+    // res.status(201).json({ venueId: newData.venue_id, location: newData.location, eventDate: newData?.event_date, eventTime: newData?.event_time, gender: newData?.gender, guestCount: newData?.guest_count, updatedAt: newData.updatedAt, createdAt: newData.createdAt });
+    res.status(201).json({ venueId: newData.venue_id, location: newData.location, eventDate: newData?.event_date, updatedAt: newData.updatedAt, createdAt: newData.createdAt });
   } catch (e) {
     console.log(e);
     return res.status(500)
@@ -40,9 +41,9 @@ router.post("/venue-detail-by-id", async (req, res) => {
         ['venue_id', 'venueId'],
         'location',
         ['event_date', 'eventDate'],
-        ['event_time', 'eventTime'],
-        'gender',
-        ['guest_count', 'guestCount'],
+        // ['event_time', 'eventTime'],
+        // 'gender',
+        // ['guest_count', 'guestCount'],
       ],
       where: { [Op.or]: [{ venue_id: venueId }] }
     });

@@ -125,11 +125,11 @@ router.post("/categories", async (req, res) => {
 router.post("/categories-list", async (req, res) => {
     const { type, imageName, categoryId } = req.body;
     try {
-        const categoriesList = await CategoriesLists.findOne({ where: { [Op.or]: [{ type }] } });
-        if (categoriesList) {
-            return res.status(422)
-                .send({ message: 'Type already exists' });
-        }
+        // const categoriesList = await CategoriesLists.findOne({ where: { [Op.or]: [{ type }] } });
+        // if (categoriesList) {
+        //     return res.status(422)
+        //         .send({ message: 'Type already exists' });
+        // }
 
         // Create new categories list
         const newData = await CategoriesLists.create({

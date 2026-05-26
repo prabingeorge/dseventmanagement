@@ -20,44 +20,39 @@ const router = express.Router();
 // @access  Public
 // router.post('/register', AuthController.signUp);
 router.post("/register", async (req, res) => {
-    console.log("register API");
-    const { error } = registerSchema.validate(req.body);
-    if (error) return res.status(400).json({ message: error.details[0].message });
+    console.log("user register API");
 
-    const { name, email, phone, password, status } = req.body;
+    const { name, email, password, status } = req.body;
     try {
-        console.log(User);
-        const user = await User.findOne({ where: { [Op.or]: [{ phone }, { email }] } });
-        if (user) {
-            return res.status(422)
-                .send({ message: 'User with that email or phone already exists' });
-        }
+        // Verify the user already exist
+        // const user = await User.findOne({ where: { [Op.or]: [{ phone }, { email }] } });
+        const user = await User.findOne({ where: { email } });
+        if (user) return res.status(400).json({ message: "User is already present. Try with different Email" });
 
         // Hash password
         // const salt = await bcrypt.genSalt(10);
         // const hashedPassword = await bcrypt.hash(password, salt);
-        const hashedPassword = bcrypt.hashSync(password, 8)
+        const hashedPassword = bcrypt.hashSync(password, 8);
 
         // Create new user
         const newUser = await User.create({
             name,
             email,
-            phone,
+            // phone,
             password: hashedPassword,
             status,
         });
 
         // Generate JWT
-        const token = jwt.sign({ userId: newUser.user_id }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ userId: newUser.user_id, name: newUser.name, email: newUser.email, password: newUser?.password, role: 'user' }, process.env.JWT_SECRET, {
             expiresIn: "1h"
         });
 
         res.status(201).json({
             token,
-            user: { name: name, email: email }
+            user: { userId: newUser.user_id, name: newUser.name, email: newUser.email, role: newUser.role }
         });
 
-        // return res.status(201).send({message: 'Account created successfully'});
     } catch (e) {
         console.log(e);
         return res.status(500)
@@ -84,7 +79,7 @@ router.post("/login", async (req, res) => {
             return res.status(400).json({ message: "Invalid credentials" });
 
         // Generate JWT
-        const token = jwt.sign({ userId: user.user_id, name: user.name, email: user.email, phone: user?.phone, role: 'user' }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ userId: user.user_id, name: user.name, email: user.email, role: 'user' }, process.env.JWT_SECRET, {
             expiresIn: "1h"
         });
 
@@ -95,45 +90,6 @@ router.post("/login", async (req, res) => {
     } catch (err) {
         console.error(err.message);
         res.status(500).send("Server error");
-    }
-});
-
-// @route   POST /api/auth/register
-// @desc    Register new user
-// @access  Public
-// router.post('/register', AuthController.signUp);
-router.post("/user-register", async (req, res) => {
-    console.log("user register API");
-   
-    const { name, email, password, status } = req.body;
-    try {
-        // Verify the user already exist
-        const user = await User.findOne({ where: { email } });
-        if (user) return res.status(400).json({ message: "User is already present. Try with different Email" });
-
-        // Create new user
-        const newUser = await User.create({
-            name,
-            email,
-            // phone,
-            password,
-            status,
-        });
-
-        // Generate JWT
-        const token = jwt.sign({ userId: newUser.user_id, name: newUser.name, email: newUser.email, password: newUser?.password, role: 'user' }, process.env.JWT_SECRET, {
-            expiresIn: "1h"
-        });
-
-        res.status(201).json({
-            token,
-            user: { userId: newUser.user_id, name: newUser.name, email: newUser.email, role: newUser.role }
-        });
-
-    } catch (e) {
-        console.log(e);
-        return res.status(500)
-            .send({ message: 'Could not perform operation at this time, kindly try again later.' });
     }
 });
 
